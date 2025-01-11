@@ -2,10 +2,10 @@ import { Task } from "./task";
 
 export class Project {
     #taskList = new Map(); 
-    #projectContainer = document.querySelector("div.project-container"); 
+    #taskContainer = document.querySelector("div.task-container"); 
 
-    constructor() {
-
+    constructor(title) {
+        this.title = title; 
     }
 
     createTask(title, description, dueDate, priority) {
@@ -17,21 +17,21 @@ export class Project {
 
         const deleteButton = document.createElement("button"); 
         deleteButton.addEventListener("click", (e) => {
-            this.deleteTask(task); 
+            this.#deleteTask(task); 
         });
         taskOnDOM.appendChild(deleteButton); 
 
         this.#taskList.set(task, taskOnDOM); 
     }
 
-    deleteTask(task) {
+    #deleteTask(task) {
         this.#taskList.get(task).remove(); 
         this.#taskList.delete(task); 
     }
 
     populateScreen() {
         this.#taskList.forEach((value, key) => {
-            this.#projectContainer.appendChild(value); 
+            this.#taskContainer.appendChild(value); 
         });
     }
 };

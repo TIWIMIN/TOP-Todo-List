@@ -6,16 +6,22 @@
     <title>Document</title>
 </head>
 <body>
-    <button id="newTask"></button>
+    <button id="newTask">New Task</button>
+
+    <button id="newProject">New Project</button>
 
     <div class="project-container">
+
+    </div>
+
+    <div class="task-container">
 
     </div>
 
     <dialog id="taskDialog">
         <form autofocus action="" method = "post">
             <legend>New Task</legend>
-                <input type="text" name="taskTitle" id="taskTitle" placeholder="title:" value="default" required>
+                <input type="text" name="taskTitle" id="taskTitle" placeholder="title:" value="" required>
                 <textarea name="taskDescription" id="taskDescription" placeholder="description:" maxlength="500"></textarea>
                 <input type="date" name="taskDate" id="taskDate" placeholder="due date:" value="default">
 
@@ -25,6 +31,15 @@
 
             <button type="submit" id="taskDialogSubmit">Submit</button>
             <button type="button" id="taskDialogClose">Close</button>
+        </form>
+    </dialog>
+
+    <dialog id="projectDialog">
+        <form autofocus action="" method="post">
+            <legend>New Project</legend>
+                <input type="text" name="projectTitle" id="projectTitle" placeholder="title:">
+            <button type="submit" id="projectDialogSubmit">Submit</button>
+            <button type="button" id="projectDialogClose">Close</button>
         </form>
     </dialog>
 </body>
