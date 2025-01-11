@@ -1,7 +1,7 @@
 import { Project } from "./project";
 
-class ProjectManager {
-    #newProjectButton = document.querySelector("button#projectButton");
+export class ProjectManager {
+    #newProjectButton = document.querySelector("button#newProject");
     #projectDialog = document.querySelector("dialog#projectDialog"); 
     #projectTitle = document.querySelector("input#projectTitle"); 
     #projectSubmitButton = document.querySelector("button#projectSubmit"); 
