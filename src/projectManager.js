@@ -4,11 +4,13 @@ export class ProjectManager {
     #newProjectButton = document.querySelector("button#newProject");
     #projectDialog = document.querySelector("dialog#projectDialog"); 
     #projectTitle = document.querySelector("input#projectTitle"); 
-    #projectSubmitButton = document.querySelector("button#projectSubmit"); 
-    #projectCloseButton = document.querySelector("button#projectClose");  
+    #projectSubmitButton = document.querySelector("button#projectDialogSubmit"); 
+    #projectCloseButton = document.querySelector("button#projectDialogClose");  
 
     #projectList = new Map(); 
-    #projectContainer = document.querySelector("div#project-container");
+    #projectContainer = document.querySelector("div.project-container");
+
+    #currentProject; 
 
     constructor() {
         this.#newProjectButton.addEventListener("click", (e) => {
@@ -16,6 +18,7 @@ export class ProjectManager {
         });
 
         this.#projectSubmitButton.addEventListener("click", (e) => {
+            e.preventDefault(); 
             if (this.#projectTitle.value !== "") {
                 this.createProject(this.#projectTitle.value)
                 this.#projectDialog.close(); 
@@ -31,9 +34,9 @@ export class ProjectManager {
     }
 
     createProject(title) {
-        const project = Project(title); 
+        const project = new Project(title); 
 
-        const projectOnDOM = document.createElement("div");
+        const projectOnDOM = document.createElement("button");
         projectOnDOM.textContent = title; 
         projectOnDOM.classList.add("project"); 
 
@@ -43,6 +46,8 @@ export class ProjectManager {
         });
         projectOnDOM.appendChild(deleteButton); 
 
+        projectOnDOM.addEventListener("click", this.setCurrentProject(project));
+
         this.#projectContainer.appendChild(projectOnDOM); 
         this.#projectList.set(project, projectOnDOM); 
     }
@@ -50,5 +55,13 @@ export class ProjectManager {
     #deleteProject(project) {
         this.#projectList.get(project).remove(); 
         this.#projectList.delete(project); 
+    }
+
+    setCurrentProject(project) {
+        this.#currentProject = project; 
+    }
+
+    getCurrentProject() {
+        return this.#projectList.get(this.#currentProject); 
     }
 }
