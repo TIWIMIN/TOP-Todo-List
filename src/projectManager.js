@@ -14,6 +14,20 @@ export class ProjectManager {
         this.#newProjectButton.addEventListener("click", (e) => {
             this.#projectDialog.showModal(); 
         });
+
+        this.#projectSubmitButton.addEventListener("click", (e) => {
+            if (this.#projectTitle.value !== "") {
+                this.createProject(this.#projectTitle.value)
+                this.#projectDialog.close(); 
+            }
+            else {
+
+            }
+        });
+
+        this.#projectCloseButton.addEventListener("click", (e) => {
+            this.#projectDialog.close(); 
+        })
     }
 
     createProject(title) {
