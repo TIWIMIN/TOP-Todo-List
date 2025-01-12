@@ -17,6 +17,7 @@ export class Project {
 
         const deleteButton = document.createElement("button"); 
         deleteButton.addEventListener("click", (e) => {
+            e.stopPropagation(); 
             this.#deleteTask(task); 
         });
         taskOnDOM.appendChild(deleteButton); 
@@ -30,6 +31,7 @@ export class Project {
     }
 
     populateScreen() {
+        this.#taskContainer.textContent = ""; 
         this.#taskList.forEach((value, key) => {
             this.#taskContainer.appendChild(value); 
         });

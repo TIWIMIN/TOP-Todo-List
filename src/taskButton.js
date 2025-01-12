@@ -1,5 +1,3 @@
-import { Project } from "./project";
-
 export class TaskButton {
     #newTaskButton = document.querySelector("button#newTask"); 
     #taskDialog = document.querySelector("dialog#taskDialog");
