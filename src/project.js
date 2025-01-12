@@ -11,9 +11,7 @@ export class Project {
     createTask(title, description, dueDate, priority) {
         const task = new Task(title, description, dueDate, priority); 
 
-        const taskOnDOM = document.createElement("div"); 
-        taskOnDOM.textContent = `${title}, ${description}, ${dueDate}, ${priority}`; 
-        taskOnDOM.classList.add("task"); 
+        const taskOnDOM = task.getTaskOnDOM(); 
 
         const deleteButton = document.createElement("button"); 
         deleteButton.addEventListener("click", (e) => {
@@ -26,6 +24,7 @@ export class Project {
     }
 
     #deleteTask(task) {
+        task.deleteTaskDetails(); 
         this.#taskList.get(task).remove(); 
         this.#taskList.delete(task); 
     }
