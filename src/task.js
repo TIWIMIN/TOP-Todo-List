@@ -69,7 +69,6 @@ export class Task {
         return ""; 
     }
 
-
     getTaskOnDOM() {
         return this.#taskOnDOM; 
     }
@@ -120,6 +119,39 @@ export class Task {
                 taskDetail.textContent = format(new Date(hiddenDateOnDOM.value), 'MMM dd, yyyy');
                 taskAttribute.textContent = format(new Date(hiddenDateOnDOM.value), 'MMM dd, yyyy'); 
             });
+        }
+
+        if (taskAttribute === this.#taskOnDOMPriority) {
+            const hiddenPriorityOnDOMOne = document.createElement("input"); 
+            const hiddenPriorityOnDOMTwo = document.createElement("input"); 
+            const hiddenPriorityOnDOMThree = document.createElement("input");
+            
+            const hiddenPriorityContainer = document.createElement("div"); 
+
+            Object.assign(hiddenPriorityOnDOMOne, {
+                type: "radio",
+                name: "hiddenPriority", 
+                checked: "true", 
+                value: "one",
+            });
+
+            Object.assign(hiddenPriorityOnDOMTwo, {
+                type: "radio",
+                name: "hiddenPriority", 
+                value: "two",
+            });
+
+            Object.assign(hiddenPriorityOnDOMThree, {
+                type: "radio",
+                name: "hiddenPriority", 
+                value: "three",
+            });
+
+            hiddenPriorityContainer.appendChild(hiddenPriorityOnDOMOne); 
+            hiddenPriorityContainer.appendChild(hiddenPriorityOnDOMTwo); 
+            hiddenPriorityContainer.appendChild(hiddenPriorityOnDOMThree); 
+
+            
         }
         
 
