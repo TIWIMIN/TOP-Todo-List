@@ -46,5 +46,21 @@
             <button type="button" id="projectDialogClose">Close</button>
         </form>
     </dialog>
+
+    <dialog id="editTaskDialog">
+        <form autofocus action="" method = "post">
+            <legend>Edit Task</legend>
+                <input type="text" name="editTaskTitle" id="editTaskTitle" placeholder="title:" value="" required>
+                <textarea name="editTaskDescription" id="editTaskDescription" placeholder="description:" maxlength="500"></textarea>
+                <input type="date" name="editTaskDate" id="editTaskDate" placeholder="due date:" value="default">
+
+                <input type="radio" name="editTaskPriority" id="editPriorityOne" checked value="one">
+                <input type="radio" name="editTaskPriority" id="editPriorityTwo" value="two">
+                <input type="radio" name="editTaskPriority" id="editPriorityThree" value="three">
+
+            <button type="submit" id="editTaskDialogSubmit">Submit</button>
+            <button type="button" id="editTaskDialogClose">Close</button>
+        </form>
+    </dialog>
 </body>
 </html>

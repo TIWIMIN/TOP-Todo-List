@@ -2,6 +2,7 @@ import { Project } from "./project";
 import { TaskButton } from "./taskButton";
 import { format } from 'date-fns'; 
 
+
 export class ProjectManager {
     #newProjectButton = document.querySelector("button#newProject");
     #projectDialog = document.querySelector("dialog#projectDialog"); 
@@ -13,6 +14,7 @@ export class ProjectManager {
     #projectContainer = document.querySelector("div.project-container");
 
     #taskContainer = document.querySelector("div.task-container"); 
+    #taskDetailsContainer = document.querySelector("div.task-details-container"); 
 
     #currentProject; 
 
@@ -98,6 +100,7 @@ export class ProjectManager {
         this.#taskContainer.textContent = ""; 
         this.#currentProject.populateScreen(); 
         console.log("hi"); 
+        this.#taskDetailsContainer.textContent = ""; 
     }
 
     getCurrentProject() {
