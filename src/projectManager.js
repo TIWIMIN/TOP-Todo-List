@@ -1,5 +1,6 @@
 import { Project } from "./project";
 import { TaskButton } from "./taskButton";
+import { format } from 'date-fns'; 
 
 export class ProjectManager {
     #newProjectButton = document.querySelector("button#newProject");
@@ -18,6 +19,8 @@ export class ProjectManager {
     #taskButton;
 
     #defaultProject; 
+
+    #today = format(new Date(), 'MMMM do, yyyy'); 
 
     constructor(title) {
         this.#newProjectButton.addEventListener("click", (e) => {
@@ -44,7 +47,7 @@ export class ProjectManager {
         const project = new Project(title); 
 
         const projectOnDOM = document.createElement("button");
-        projectOnDOM.textContent = title; 
+        projectOnDOM.textContent = this.#today; 
         projectOnDOM.classList.add("project");
 
         projectOnDOM.addEventListener("click", (e) => this.setCurrentProject(project));
