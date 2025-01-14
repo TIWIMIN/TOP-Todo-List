@@ -108,4 +108,8 @@ export class ProjectManager {
     getCurrentProject() {
         return this.#currentProject; 
     }
+
+    getProjects() {
+        return this.#projectList; 
+    }
 }

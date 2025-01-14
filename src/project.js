@@ -41,4 +41,8 @@ export class Project {
             this.#taskContainer.appendChild(value); 
         });
     }
+
+    getTasks() {
+        return this.#taskList; 
+    }
 };

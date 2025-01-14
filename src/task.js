@@ -192,5 +192,9 @@ export class Task {
     deleteTaskDetails() {
         this.#taskDetailsContainer.textContent = ""; 
     }
+
+    getTaskInfo() {
+        return [this.#title, this.#description, this.#dueDate, this.#priority]; 
+    }
 }
 
