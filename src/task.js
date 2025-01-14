@@ -77,7 +77,7 @@ export class Task {
         this.#taskDetailsContainer.textContent = ""; 
 
         const taskDetailsTitle = document.createElement("h1"); 
-        const taskDetailsDescription = document.createElement("p"); 
+        const taskDetailsDescription = document.createElement("div"); 
         const taskDetailsDueDate = document.createElement("div")
         const taskDetailsPriority = document.createElement("div");
 
@@ -119,6 +119,7 @@ export class Task {
                 console.log(hiddenDateOnDOM.value); 
                 taskDetail.textContent = format(new Date(hiddenDateOnDOM.value), 'MMM dd, yyyy');
                 taskAttribute.textContent = format(new Date(hiddenDateOnDOM.value), 'MMM dd, yyyy'); 
+                this.#dueDate = format(new Date(hiddenDateOnDOM.value), "yyyy-mm-dd"); 
             });
         }
 
@@ -161,7 +162,8 @@ export class Task {
                 if (e.target.name === "hiddenPriority") {
                     e.stopPropagation(); 
                     taskDetail.textContent = this.#parsePriority(e.target.value); 
-                    this.#taskOnDOMPriority.textContent = this.#parsePriority(e.target.value); 
+                    this.#taskOnDOMPriority.textContent = this.#parsePriority(e.target.value);
+                    this.#priority = e.target.value;  
                 }
             });
         }
@@ -174,8 +176,10 @@ export class Task {
             });
 
             taskDetail.addEventListener("blur", () => {
+                this.#description = taskDetail.textContent;
                 if (taskAttribute) {
                     taskAttribute.textContent = taskDetail.textContent
+                    this.#title = taskDetail.textContent; 
                 }
                 taskDetail.removeAttribute("contenteditable"); 
             });
