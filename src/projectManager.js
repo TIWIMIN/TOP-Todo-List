@@ -80,6 +80,8 @@ export class ProjectManager {
         this.#projectContainer.appendChild(projectOnDOM); 
         this.#projectList.set(project, projectOnDOM); 
 
+        this.setCurrentProject(project);
+
 
         return project;
     }

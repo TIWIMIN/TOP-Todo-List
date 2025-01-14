@@ -90,6 +90,7 @@ export class Task {
         this.makeTaskDetailsEditable(this.#taskOnDOMTitle, taskDetailsTitle);
         this.makeTaskDetailsEditable(null, taskDetailsDescription)
         this.makeTaskDetailsEditable(this.#taskOnDOMDate, taskDetailsDueDate); 
+        this.makeTaskDetailsEditable(this.#taskOnDOMPriority, taskDetailsPriority);
         
         this.#taskDetailsContainer.appendChild(taskDetailsTitle); 
         this.#taskDetailsContainer.appendChild(taskDetailsDescription); 
@@ -121,7 +122,7 @@ export class Task {
             });
         }
 
-        if (taskAttribute === this.#taskOnDOMPriority) {
+        else if (taskAttribute === this.#taskOnDOMPriority) {
             const hiddenPriorityOnDOMOne = document.createElement("input"); 
             const hiddenPriorityOnDOMTwo = document.createElement("input"); 
             const hiddenPriorityOnDOMThree = document.createElement("input");
@@ -151,7 +152,18 @@ export class Task {
             hiddenPriorityContainer.appendChild(hiddenPriorityOnDOMTwo); 
             hiddenPriorityContainer.appendChild(hiddenPriorityOnDOMThree); 
 
-            
+            taskDetail.addEventListener("click", (e) => {
+                taskDetail.textContent = ""; 
+                taskDetail.appendChild(hiddenPriorityContainer); 
+            });
+
+            hiddenPriorityContainer.addEventListener("click", (e) => {
+                if (e.target.name === "hiddenPriority") {
+                    e.stopPropagation(); 
+                    taskDetail.textContent = this.#parsePriority(e.target.value); 
+                    this.#taskOnDOMPriority.textContent = this.#parsePriority(e.target.value); 
+                }
+            });
         }
         
 
