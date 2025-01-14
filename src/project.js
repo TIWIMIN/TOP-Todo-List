@@ -20,6 +20,12 @@ export class Project {
         });
         taskOnDOM.appendChild(deleteButton); 
 
+        const completeButton = document.createElement("button"); 
+        completeButton.addEventListener("click", (e) => {
+            e.stopPropagation(); 
+            // add function to style button here
+        })
+
         this.#taskList.set(task, taskOnDOM); 
     }
 
