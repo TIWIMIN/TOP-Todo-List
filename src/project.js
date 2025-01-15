@@ -42,6 +42,10 @@ export class Project {
         });
     }
 
+    getTitle() {
+        return this.title; 
+    }
+
     getTasks() {
         return this.#taskList; 
     }

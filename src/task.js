@@ -119,7 +119,7 @@ export class Task {
                 console.log(hiddenDateOnDOM.value); 
                 taskDetail.textContent = format(new Date(hiddenDateOnDOM.value), 'MMM dd, yyyy');
                 taskAttribute.textContent = format(new Date(hiddenDateOnDOM.value), 'MMM dd, yyyy'); 
-                this.#dueDate = format(new Date(hiddenDateOnDOM.value), "yyyy-mm-dd"); 
+                this.#dueDate = format(new Date(hiddenDateOnDOM.value), "yyyy-MM-dd"); 
             });
         }
 
