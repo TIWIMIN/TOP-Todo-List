@@ -101,7 +101,6 @@ export class ProjectManager {
         this.#currentProject = project; 
         this.#taskContainer.textContent = ""; 
         this.#currentProject.populateScreen(); 
-        console.log("hi"); 
         this.#taskDetailsContainer.textContent = ""; 
     }
 

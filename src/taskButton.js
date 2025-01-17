@@ -5,6 +5,7 @@ export class TaskButton {
     #taskFormData; 
     #taskFormSubmitButton = document.querySelector("button#taskDialogSubmit"); 
     #taskFormCloseButton = document.querySelector("button#taskDialogClose");
+    #taskContainerHeaderTitle = document.querySelector("div.task-container-header-title");
     
     #currentProject = null; 
 
@@ -39,6 +40,7 @@ export class TaskButton {
 
     setProject(project) {
         this.#currentProject = project; 
+        this.#taskContainerHeaderTitle.textContent = project.getTitle(); 
     }
 
     #isFormValid(taskFormData) {
