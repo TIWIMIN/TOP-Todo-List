@@ -38,13 +38,14 @@ export class Task {
         this.#taskOnDOMDate.classList.add("taskOnDOMDate"); 
         this.#taskOnDOMPriority.classList.add("taskOnDOMPriority"); 
 
+
         this.#taskOnDOMTitle.textContent = this.#title; 
         this.#taskOnDOMDate.textContent = this.#parseDate(this.#dueDate);
-        this.#taskOnDOMPriority.textContent = this.#parsePriority(this.#priority); 
+        this.#taskOnDOMPriority.textContent = this.#parsePriority(this.#priority);
+        
+        this.assignColor(this.#taskOnDOM);
 
         this.#taskOnDOM.appendChild(this.#taskOnDOMTitle); 
-        this.#taskOnDOM.appendChild(this.#taskOnDOMDate); 
-        this.#taskOnDOM.appendChild(this.#taskOnDOMPriority); 
         
     }
 
@@ -67,6 +68,18 @@ export class Task {
             return "high priority"; 
         }
         return ""; 
+    }
+
+    assignColor(task) {
+        if (this.#priority == "one") {
+            task.classList.add("priorityOne");
+        }
+        else if (this.#priority == "two") {
+            task.classList.add("priorityTwo");
+        }
+        else if (this.#priority == "three") {
+            task.classList.add("priorityThree"); 
+        }
     }
 
     getTaskOnDOM() {

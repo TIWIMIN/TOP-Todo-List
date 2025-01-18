@@ -47,6 +47,7 @@ export class ProjectManager {
 
     createDefaultProject(title) {
         const project = new Project(title); 
+        project.setTitle(format(new Date(), 'MM/dd/yy')); 
 
         const projectOnDOM = document.createElement("button");
         projectOnDOM.textContent = this.#today; 
@@ -73,9 +74,13 @@ export class ProjectManager {
             e.stopPropagation(); 
             this.#deleteProject(project); 
         });
+        deleteButton.classList.add("projectDelete"); 
         projectOnDOM.appendChild(deleteButton); 
 
-        projectOnDOM.addEventListener("click", (e) => this.setCurrentProject(project));
+        projectOnDOM.addEventListener("click", (e) => {
+            e.stopPropagation(); 
+            this.setCurrentProject(project)
+        });
 
         this.#projectContainer.appendChild(projectOnDOM); 
         this.#projectList.set(project, projectOnDOM); 
@@ -87,9 +92,11 @@ export class ProjectManager {
     }
 
     #deleteProject(project) {
+        if (this.#defaultProject) {
+            this.setCurrentProject(this.#defaultProject); 
+        }
         this.#projectList.get(project).remove(); 
         this.#projectList.delete(project); 
-        this.setCurrentProject(this.#defaultProject); 
     }
 
     setTaskButton(button) {
@@ -97,11 +104,17 @@ export class ProjectManager {
     }
 
     setCurrentProject(project) {
+        if (this.getCurrentProject()) {
+            console.log("why am i here"); 
+            this.#projectList.get(this.getCurrentProject()).classList.remove("projectActive"); 
+        }
+
         this.#taskButton.setProject(project); 
         this.#currentProject = project; 
         this.#taskContainer.textContent = ""; 
         this.#currentProject.populateScreen(); 
         this.#taskDetailsContainer.textContent = ""; 
+        this.#projectList.get(project).classList.add("projectActive"); 
     }
 
     getCurrentProject() {

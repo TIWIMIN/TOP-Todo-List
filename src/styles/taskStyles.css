@@ -1,0 +1,60 @@
+
+
+button.task {
+    width: 100%; 
+    height: 3.75rem; 
+
+    display: grid; 
+    grid-template: 0 / 2.575rem 1fr; 
+    grid-auto-flow: row;
+    align-content: center;
+    padding: 0 1.25rem;
+}
+
+button.priorityOne:hover, 
+button.priorityOne:hover button.taskDeleteButton {
+    background-color: #F7EAEB;
+}
+
+button.priorityOne.priorityClicked, 
+button.priorityOne.priorityClicked button.taskDeleteButton {
+    background-color: #F4D9D9; 
+}
+
+button.priorityTwo:hover, 
+button.priorityTwo:hover button.taskDeleteButton {
+    background-color: #F6F5E5;
+}
+
+button.priorityTwo.priorityClicked, 
+button.priorityTwo.priorityClicked button.taskDeleteButton {
+    background-color: #F5EDD0; 
+}
+
+button.priorityThree:hover, 
+button.priorityThree:hover button.taskDeleteButton {
+    background-color: #DFF1E2;
+}
+
+button.priorityThree.priorityClicked, 
+button.priorityThree.priorityClicked button.taskDeleteButton {
+    background-color: #C7E9CC; 
+}
+
+div.taskOnDOMTitle {
+    grid-column: 2 / 3; 
+    justify-self: start; 
+    font-size: 1.25 rem; 
+    color: var(--font-light); 
+}
+
+
+
+button.taskDeleteButton {
+    width: 1.625rem; 
+    height: 1.625rem; 
+    background-image: url("../assets/circle.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0; 
+}

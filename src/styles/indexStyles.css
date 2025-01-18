@@ -55,10 +55,12 @@ isolation: isolate;
     --primary-background-color: #EBEDF0; 
     --font-dark: #1B1F26; 
     --font-light: #999999; 
+    --blue: #007AFF; 
 }
 
 button {
     border: none; 
+    background-color: var(--primary-background-color);
 }
 
 .container {
@@ -100,9 +102,8 @@ button {
     color: var(--font-dark); 
     font-size: 2rem;
     border-radius: 1rem;
+    padding-bottom: 1.25rem; 
 }
-
-
 
 .super-task-container {
     display: grid; 
@@ -114,8 +115,9 @@ button {
 }
 
 .task-container-header {
-    display: grid; 
-    grid-template: 1fr / 2fr 1fr; 
+    display: flex; 
+    justify-content: space-between;
+
     grid-row: 1 / 2; 
     grid-column: 1 / 2; 
 
@@ -123,6 +125,17 @@ button {
     border-radius: 1rem;
     width: 18rem;
     margin-bottom: 1.25rem;
+    padding-left: 1.25rem; 
+    padding-right: 1.25rem; 
+}
+
+.task-container-header-title {
+    align-self: center; 
+    font-size: 1.75rem; 
+    color: var(--blue); 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
 }
 
 .task-container {
@@ -140,5 +153,19 @@ button {
     
     background-color: var(--primary-background-color);
     border-radius: 1rem;
+}
+
+button#newProject {
+    margin-right: 1.25rem;
+}
+
+button#newTask, button#newProject {
+    background-image: url("../assets/plus.svg");
+    background-repeat: no-repeat; 
+    background-position: center; 
+    width: 2rem;
+    height: 2rem;
+    align-self: center; 
+    flex-shrink: 0;
 }
 

@@ -1,7 +1,9 @@
 import { TaskButton } from "./taskButton.js";
 import { ProjectManager } from "./projectManager.js";
 import { LocalStorageManager } from "./localStorageManager.js";
-import "./indexStyles.css"; 
+import "./styles/indexStyles.css"; 
+import "./styles/projectStyles.css"; 
+import "./styles/taskStyles.css"; 
 
 const taskButton = new TaskButton(); 
 const projectManager = new ProjectManager();
