@@ -32,10 +32,10 @@ export class ProjectManager {
 
         this.#projectSubmitButton.addEventListener("click", (e) => {
             e.preventDefault(); 
-            this.#projectForm.reset();
             if (this.#projectTitle.value !== "") {
                 this.createProject(this.#projectTitle.value)
                 this.#projectDialog.close(); 
+                this.#projectForm.reset();
             }
             else {
 

@@ -60,18 +60,28 @@ export class Task {
 
     #parsePriority(priority) {
         if (priority == "one") {
-            return "low"; 
+            return "high"; 
         }
         else if (priority == "two") {
             return "medium"; 
         }
         else if (priority == "three") {
-            return "high"; 
+            return "low"; 
         }
         return ""; 
     }
 
     assignColor(task) {
+        if (task.classList.contains("priorityOne")) {
+            task.classList.remove("priorityOne");
+        }
+        if (task.classList.contains("priorityTwo")) {
+            task.classList.remove("priorityTwo"); 
+        }
+        if (task.classList.contains("priorityThree")) {
+            task.classList.remove("priorityThree"); 
+        }
+
         if (this.#priority == "one") {
             task.classList.add("priorityOne");
         }
@@ -203,6 +213,8 @@ export class Task {
                     this.#priority = e.target.value;  
                 }
             });
+
+            this.assignColor(this.#taskOnDOM);
         }
         
 
