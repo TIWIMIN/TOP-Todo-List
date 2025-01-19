@@ -245,5 +245,6 @@ export class Task {
     getTaskInfo() {
         return [this.#title, this.#description, this.#dueDate, this.#priority]; 
     }
+    
 }
 
