@@ -12,7 +12,7 @@
         
         
         <div class="project-container">
-            <div class="project-container-header">projects
+            <div class="project-container-header">categories
                 <button id="newProject"></button>
             </div>
         </div>
@@ -23,7 +23,8 @@
                 <button id="newTask"></button>
             </div>
             <div class="task-container"></div>
-            <div class="task-details-container"></div>
+            <div class="task-details-container">
+            </div>
         </div>
         
         
@@ -31,36 +32,31 @@
     </div>
         <dialog id="taskDialog">
             <form autofocus action="" method = "post">
-                <legend>New Task</legend>
+                <legend>create new task</legend>
+                <div class="taskDialogUpper">
                     <input type="text" name="taskTitle" id="taskTitle" placeholder="title:" value="" required>
-                    <textarea name="taskDescription" id="taskDescription" placeholder="description:" maxlength="500"></textarea>
+                    
+                    <div class="taskDialogDateName">date</div>
                     <input type="date" name="taskDate" id="taskDate" placeholder="due date:" value="default">
-                    <input type="radio" name="taskPriority" id="priorityOne" checked value="one">
-                    <input type="radio" name="taskPriority" id="priorityTwo" value="two">
-                    <input type="radio" name="taskPriority" id="priorityThree" value="three">
-                <button type="submit" id="taskDialogSubmit">Submit</button>
-                <button type="button" id="taskDialogClose">Close</button>
+                    <div class="taskDialogPriorityName">priority</div>
+                    <div class="priority">
+                        <input type="radio" name="taskPriority" id="priorityOne" checked value="one">
+                        <input type="radio" name="taskPriority" id="priorityTwo" value="two">
+                        <input type="radio" name="taskPriority" id="priorityThree" value="three">
+                    </div>
+                </div>
+
+                <textarea name="taskDescription" id="taskDescription" placeholder="description:" maxlength="500"></textarea>
+                <button type="submit" id="taskDialogSubmit"></button>
+                <button type="button" id="taskDialogClose"></button>
             </form>
         </dialog>
         <dialog id="projectDialog">
             <form autofocus action="" method="post">
-                <legend>New Project</legend>
-                    <input type="text" name="projectTitle" id="projectTitle" placeholder="title:" required>
-                <button type="submit" id="projectDialogSubmit">Submit</button>
-                <button type="button" id="projectDialogClose">Close</button>
-            </form>
-        </dialog>
-        <dialog id="editTaskDialog">
-            <form autofocus action="" method = "post">
-                <legend>Edit Task</legend>
-                    <input type="text" name="editTaskTitle" id="editTaskTitle" placeholder="title:" value="" required>
-                    <textarea name="editTaskDescription" id="editTaskDescription" placeholder="description:" maxlength="500"></textarea>
-                    <input type="date" name="editTaskDate" id="editTaskDate" placeholder="due date:" value="default">
-                    <input type="radio" name="editTaskPriority" id="editPriorityOne" checked value="one">
-                    <input type="radio" name="editTaskPriority" id="editPriorityTwo" value="two">
-                    <input type="radio" name="editTaskPriority" id="editPriorityThree" value="three">
-                <button type="submit" id="editTaskDialogSubmit">Submit</button>
-                <button type="button" id="editTaskDialogClose">Close</button>
+                <legend>create new category</legend>
+                <input type="text" name="projectTitle" id="projectTitle" placeholder="title:" required>
+                <button type="submit" id="projectDialogSubmit"></button>
+                <button type="button" id="projectDialogClose"></button>
             </form>
         </dialog>
     

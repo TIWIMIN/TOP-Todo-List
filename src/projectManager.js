@@ -6,6 +6,7 @@ import { format } from 'date-fns';
 export class ProjectManager {
     #newProjectButton = document.querySelector("button#newProject");
     #projectDialog = document.querySelector("dialog#projectDialog"); 
+    #projectForm = document.querySelector("dialog#projectDialog form"); 
     #projectTitle = document.querySelector("input#projectTitle"); 
     #projectSubmitButton = document.querySelector("button#projectDialogSubmit"); 
     #projectCloseButton = document.querySelector("button#projectDialogClose");  
@@ -31,6 +32,7 @@ export class ProjectManager {
 
         this.#projectSubmitButton.addEventListener("click", (e) => {
             e.preventDefault(); 
+            this.#projectForm.reset();
             if (this.#projectTitle.value !== "") {
                 this.createProject(this.#projectTitle.value)
                 this.#projectDialog.close(); 
@@ -42,6 +44,7 @@ export class ProjectManager {
 
         this.#projectCloseButton.addEventListener("click", (e) => {
             this.#projectDialog.close(); 
+            this.#projectForm.reset();
         }) 
     }
 
@@ -105,7 +108,6 @@ export class ProjectManager {
 
     setCurrentProject(project) {
         if (this.getCurrentProject()) {
-            console.log("why am i here"); 
             this.#projectList.get(this.getCurrentProject()).classList.remove("projectActive"); 
         }
 

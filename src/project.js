@@ -31,7 +31,7 @@ export class Project {
 
     #deleteTask(task) {
         if (task === this.getCurrentTask()) {
-            this.setCurrentTask(null)
+            this.#currentTask = null;
         }
         task.deleteTaskDetails(); 
         this.#taskList.get(task).remove(); 
@@ -47,11 +47,15 @@ export class Project {
 
     setCurrentTask(task) {
         if (this.getCurrentTask()) {
+            console.log("ehh"); 
             this.#taskList.get(this.getCurrentTask()).classList.remove("priorityClicked");
         } 
-        this.#currentTask = task
         const taskElement = this.#taskList.get(task) 
-        taskElement.classList.add("priorityClicked")
+        if (taskElement) {
+            this.#currentTask = task
+            taskElement.classList.add("priorityClicked")
+        }
+        return
     }
 
     getCurrentTask() {

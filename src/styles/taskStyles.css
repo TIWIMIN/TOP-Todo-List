@@ -1,5 +1,3 @@
-
-
 button.task {
     width: 100%; 
     height: 3.75rem; 
@@ -41,14 +39,19 @@ button.priorityThree.priorityClicked button.taskDeleteButton {
     background-color: #C7E9CC; 
 }
 
+button.priorityOne.priorityClicked div.taskOnDOMTitle,
+button.priorityTwo.priorityClicked div.taskOnDOMTitle,
+button.priorityThree.priorityClicked div.taskOnDOMTitle {
+    color: var(--font-dark); 
+}
+
+
 div.taskOnDOMTitle {
     grid-column: 2 / 3; 
     justify-self: start; 
     font-size: 1.25 rem; 
     color: var(--font-light); 
 }
-
-
 
 button.taskDeleteButton {
     width: 1.625rem; 
@@ -57,4 +60,16 @@ button.taskDeleteButton {
     background-repeat: no-repeat;
     background-position: center;
     padding: 0; 
+}
+
+button.priorityOne button.taskDeleteButton:hover {
+    background-image: url("../assets/circleRed.svg"); 
+}
+
+button.priorityTwo button.taskDeleteButton:hover {
+    background-image: url("../assets/circleYellow.svg"); 
+}
+
+button.priorityThree button.taskDeleteButton:hover {
+    background-image: url("../assets/circleGreen.svg"); 
 }

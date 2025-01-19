@@ -16,6 +16,7 @@ export class TaskButton {
 
         this.#taskFormSubmitButton.addEventListener("click", (e) => {
             e.preventDefault(); 
+            
             this.#taskFormData = new FormData(this.#taskForm); 
             if (this.#isFormValid(this.#taskFormData) && this.#currentProject !== null) {
                 const tempTaskFormData = [
@@ -27,6 +28,7 @@ export class TaskButton {
                 this.#currentProject.createTask(...tempTaskFormData); 
                 this.#currentProject.populateScreen(); 
                 this.#taskDialog.close(); 
+                this.#taskForm.reset();
             }
             else {
                 // alert that form is invalid
@@ -35,6 +37,7 @@ export class TaskButton {
 
         this.#taskFormCloseButton.addEventListener("click", (e) => {
             this.#taskDialog.close(); 
+            this.#taskForm.reset();
         });
     }
 

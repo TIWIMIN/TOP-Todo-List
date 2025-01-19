@@ -80,6 +80,7 @@ button {
     font-size: 2rem;
     padding: 1.125rem 1.25rem; 
     height: 4.75rem; 
+    font-weight: bold; 
 
 }
 
@@ -101,6 +102,7 @@ button {
 
     color: var(--font-dark); 
     font-size: 2rem;
+    font-weight: bold; 
     border-radius: 1rem;
     padding-bottom: 1.25rem; 
 }
@@ -169,3 +171,15 @@ button#newTask, button#newProject {
     flex-shrink: 0;
 }
 
+button#newTask:hover, button#newProject:hover {
+    background-image: url("../assets/plusBlue.svg");
+    background-size: 75%;
+    width: 2rem;
+    height: 2rem;
+}
+
+input[type = "radio"] {
+    margin: 0 0.2rem;
+    width: 1.25rem;
+    height: 1.25rem;
+}

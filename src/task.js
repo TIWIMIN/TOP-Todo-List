@@ -27,6 +27,7 @@ export class Task {
 
 
         this.#taskOnDOM.addEventListener("click", (e) => {
+            e.stopPropagation();
             this.showTaskDetails(); 
         })
 
@@ -59,13 +60,13 @@ export class Task {
 
     #parsePriority(priority) {
         if (priority == "one") {
-            return "low priority"; 
+            return "low"; 
         }
         else if (priority == "two") {
-            return "medium priority"; 
+            return "medium"; 
         }
         else if (priority == "three") {
-            return "high priority"; 
+            return "high"; 
         }
         return ""; 
     }
@@ -87,28 +88,51 @@ export class Task {
     }
 
     showTaskDetails() {
-        this.#taskDetailsContainer.textContent = ""; 
+        this.deleteTaskDetails(); 
 
-        const taskDetailsTitle = document.createElement("h1"); 
+        const taskDetailsTitle = document.createElement("div"); 
         const taskDetailsDescription = document.createElement("div"); 
         const taskDetailsDueDate = document.createElement("div")
         const taskDetailsPriority = document.createElement("div");
+
+        const taskDetailsInfo = document.createElement("div"); 
+        const taskDetailsTitleCircle = document.createElement("div"); 
+
+        const taskDetailsInfoDate = document.createElement("div"); 
+        const taskDetailsInfoPriority = document.createElement("div"); 
+
+        taskDetailsTitle.classList.add("task-details-title"); 
+        taskDetailsDueDate.classList.add("task-details-date"); 
+        taskDetailsPriority.classList.add("task-details-priority"); 
+        taskDetailsDescription.classList.add("task-details-description"); 
+        
+        taskDetailsInfo.classList.add("task-details-info"); 
+        taskDetailsTitleCircle.classList.add("task-details-title-circle"); 
+
+        taskDetailsInfoDate.classList.add("task-details-info-date"); 
+        taskDetailsInfoPriority.classList.add("task-details-info-priority"); 
+        taskDetailsInfoDate.textContent = "date"; 
+        taskDetailsInfoPriority.textContent = "priority"; 
+
+        this.#taskDetailsContainer.appendChild(taskDetailsTitleCircle); 
+        this.#taskDetailsContainer.appendChild(taskDetailsTitle); 
+        taskDetailsInfo.appendChild(taskDetailsDueDate); 
+        taskDetailsInfo.appendChild(taskDetailsPriority); 
+        taskDetailsInfo.appendChild(taskDetailsInfoDate); 
+        taskDetailsInfo.appendChild(taskDetailsInfoPriority); 
+        this.#taskDetailsContainer.appendChild(taskDetailsInfo);  
+        this.#taskDetailsContainer.appendChild(taskDetailsDescription); 
 
 
         taskDetailsTitle.textContent = this.#title; 
         taskDetailsDescription.textContent = this.#description; 
         taskDetailsDueDate.textContent = this.#taskOnDOMDate.textContent; 
-        taskDetailsPriority.textContent = this.#priority; 
+        taskDetailsPriority.textContent = this.#parsePriority(this.#priority); 
 
         this.makeTaskDetailsEditable(this.#taskOnDOMTitle, taskDetailsTitle);
         this.makeTaskDetailsEditable(null, taskDetailsDescription)
         this.makeTaskDetailsEditable(this.#taskOnDOMDate, taskDetailsDueDate); 
         this.makeTaskDetailsEditable(this.#taskOnDOMPriority, taskDetailsPriority);
-        
-        this.#taskDetailsContainer.appendChild(taskDetailsTitle); 
-        this.#taskDetailsContainer.appendChild(taskDetailsDescription); 
-        this.#taskDetailsContainer.appendChild(taskDetailsDueDate); 
-        this.#taskDetailsContainer.appendChild(taskDetailsPriority); 
 
 
     }

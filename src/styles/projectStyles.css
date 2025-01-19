@@ -37,3 +37,10 @@ button.projectDelete {
     margin-right: 0.4rem;
     margin-bottom: 0.5rem;
 }
+
+button.projectDelete:hover {
+    background-image: url("../assets/deleteRed.svg"); 
+    background-repeat: no-repeat;
+    margin-right: 0.15rem; 
+    margin-bottom: 0.1rem; 
+}

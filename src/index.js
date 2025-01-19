@@ -4,6 +4,9 @@ import { LocalStorageManager } from "./localStorageManager.js";
 import "./styles/indexStyles.css"; 
 import "./styles/projectStyles.css"; 
 import "./styles/taskStyles.css"; 
+import "./styles/taskDetailsStyles.css";
+import "./styles/taskDialogStyles.css"; 
+import "./styles/projectDialogStyles.css"
 
 const taskButton = new TaskButton(); 
 const projectManager = new ProjectManager();
