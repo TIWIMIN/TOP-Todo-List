@@ -50,6 +50,7 @@ div.taskOnDOMTitle {
     grid-column: 2 / 3; 
     justify-self: start; 
     font-size: 1.25 rem; 
+    height: 3.25rem; 
     color: var(--font-light); 
 }
 

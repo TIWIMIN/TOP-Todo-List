@@ -69,6 +69,7 @@ button {
 
     display: grid; 
     grid-template: 4.75rem 1fr / 18rem 1fr;
+    background-color: var(--primary-background-color);
 }
 
 .task-manager {
@@ -112,8 +113,9 @@ button {
     grid-template: 4.75rem 1fr / 18rem 1fr; 
     grid-column-gap: 1.25rem;
 
-    border-radius: 1rem;
-    margin: 1.25rem;
+    border-radius: 1rem 0 0 0;
+    padding: 1.25rem;
+    background-color: white; 
 }
 
 .task-container-header {

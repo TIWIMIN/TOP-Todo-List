@@ -60,6 +60,11 @@
     border-radius: 1rem; 
 }
 
+.task-details-date:hover {
+    outline: solid 1px var(--blue); 
+    color: var(--blue); 
+}
+
 .task-details-date:active {
     outline: none; 
 }
@@ -78,6 +83,10 @@
     align-self: center;
     justify-self: end; 
     padding: 0.5rem 1.25rem
+}
+
+.task-details-priority:hover {
+    color: var(--blue); 
 }
 
 .task-details-description {
